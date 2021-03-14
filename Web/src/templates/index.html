@@ -1,0 +1,66 @@
+<html>
+
+    <head>
+        <title>Hedgehog Recogniser</title>
+        <link rel="stylesheet" href="/static/style.css"/>
+    </head>
+    <body>
+
+    
+        <div class=container>
+            <div class=header>
+                <table>
+                <tr> 
+                <td>
+                <h2>HRS | Hedgehog Recognition System<h2>
+                </td>
+                <td>
+                <p>82% of the time, it's right every time!</p>
+                </td>
+                </tr>
+                </table>
+            </div>
+                <div class=content>
+                <br/>
+                <table>
+                    <tr>
+                            <h2>Upload a 'hog</h2>
+                            <div class=upload>
+                                <form method=post enctype=multipart/form-data>
+                                <table>
+                                <tr>
+                                <input type=file name=file>
+                                </tr>
+                                <tr>
+                                <input type=submit value=Upload>
+                                </tr>
+                                </table>
+                                </form>
+                            </div>
+                    </tr>
+
+                </table>
+                <table>
+                    <tr>
+                        <div id=report>
+                            <h2>{{ report }}</h2>
+                        </div>
+                    </tr>
+                </table>
+                <div class=gallery>
+                    <h2> Recently Uploaded Friends</h2>
+                    <table>
+                    <center>
+                    <br/>
+                    {% for image in images %}
+                    <img src="{{ url_for('static', filename='upload/' + image) }}">
+                    <br/>
+                    <br>
+                    {% endfor %}
+                    <table>
+                    </center>
+                </div>
+        </div>
+        </div>
+    </body>
+</html>
